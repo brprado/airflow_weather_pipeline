@@ -19,7 +19,7 @@ with DAG(
 
     def extrai_dados(data_interval_end):
         city = 'Boston'
-        key = 'QUF48Y7VA9ZA898DEDJSHZ8ED'
+        key = '***********'
 
         URL = join('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
                    f'{city}/{data_interval_end}/{ds_add(data_interval_end, 7)}?unitGroup=metric&include=days&key={key}&contentType=csv')
