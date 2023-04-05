@@ -1,0 +1,27 @@
+[2023-04-04 10:52:10,950] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: first_dag.cria_pasta scheduled__2023-04-02T00:00:00+00:00 [queued]>
+[2023-04-04 10:52:10,953] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: first_dag.cria_pasta scheduled__2023-04-02T00:00:00+00:00 [queued]>
+[2023-04-04 10:52:10,953] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 10:52:10,953] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-04-04 10:52:10,953] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 10:52:10,974] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): cria_pasta> on 2023-04-02 00:00:00+00:00
+[2023-04-04 10:52:10,975] {standard_task_runner.py:52} INFO - Started process 35564 to run task
+[2023-04-04 10:52:10,977] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'first_dag', 'cria_pasta', 'scheduled__2023-04-02T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/first_dag.py', '--cfg-path', '/tmp/tmp2s_0bjea', '--error-file', '/tmp/tmpvldyt4o7']
+[2023-04-04 10:52:10,977] {standard_task_runner.py:80} INFO - Job 11: Subtask cria_pasta
+[2023-04-04 10:52:11,017] {task_command.py:370} INFO - Running <TaskInstance: first_dag.cria_pasta scheduled__2023-04-02T00:00:00+00:00 [running]> on host bruno-H610M-H-DDR4
+[2023-04-04 10:52:11,186] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=first_dag
+AIRFLOW_CTX_TASK_ID=cria_pasta
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-02T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-04-02T00:00:00+00:00
+[2023-04-04 10:52:11,186] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2023-04-04 10:52:11,187] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'mkdir -p "/home/bruno/Documents/airflow_alura/pasta=2023-04-03T00:00:00+00:00"']
+[2023-04-04 10:52:11,189] {subprocess.py:85} INFO - Output:
+[2023-04-04 10:52:11,191] {subprocess.py:96} INFO - Command exited with return code 0
+[2023-04-04 10:52:11,230] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=first_dag, task_id=cria_pasta, execution_date=20230402T000000, start_date=20230404T135210, end_date=20230404T135211
+[2023-04-04 10:52:11,269] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-04-04 10:52:11,289] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

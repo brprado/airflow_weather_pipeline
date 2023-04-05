@@ -1,0 +1,195 @@
+[2023-04-04 14:49:51,102] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 14:49:51,105] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 14:49:51,105] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 14:49:51,105] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-04-04 14:49:51,105] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 14:49:51,128] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extrai_dados> on 2022-09-05 00:00:00+00:00
+[2023-04-04 14:49:51,132] {standard_task_runner.py:52} INFO - Started process 14720 to run task
+[2023-04-04 14:49:51,136] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'dados_climaticos', 'extrai_dados', 'scheduled__2022-09-05T00:00:00+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/dados_climaticos.py', '--cfg-path', '/tmp/tmpa0z52ea_', '--error-file', '/tmp/tmp7vfmm8sq']
+[2023-04-04 14:49:51,138] {standard_task_runner.py:80} INFO - Job 32: Subtask extrai_dados
+[2023-04-04 14:49:51,197] {task_command.py:370} INFO - Running <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [running]> on host bruno-H610M-H-DDR4
+[2023-04-04 14:49:51,246] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=dados_climaticos
+AIRFLOW_CTX_TASK_ID=extrai_dados
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-05T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-05T00:00:00+00:00
+[2023-04-04 14:49:51,920] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/bruno/Documents/airflow_alura/dags/dados_climaticos.py", line 27, in extrai_dados
+    dados = pd.read_csv(URL)
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/io/common.py", line 716, in get_handle
+    ioargs = _get_filepath_or_buffer(
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/io/common.py", line 368, in _get_filepath_or_buffer
+    with urlopen(req_info) as req:
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/io/common.py", line 270, in urlopen
+    return urllib.request.urlopen(*args, **kwargs)
+  File "/usr/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.10/urllib/request.py", line 525, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.10/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.10/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.10/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: 
+[2023-04-04 14:49:51,931] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=dados_climaticos, task_id=extrai_dados, execution_date=20220905T000000, start_date=20230404T174951, end_date=20230404T174951
+[2023-04-04 14:49:51,959] {standard_task_runner.py:92} ERROR - Failed to execute job 32 for task extrai_dados (HTTP Error 401: ; 14720)
+[2023-04-04 14:49:51,988] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-04-04 14:49:52,017] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-04-04 15:18:28,895] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:18:28,908] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:18:28,908] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:18:28,908] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-04-04 15:18:28,908] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:18:28,930] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extrai_dados> on 2022-09-05 00:00:00+00:00
+[2023-04-04 15:18:28,933] {standard_task_runner.py:52} INFO - Started process 9566 to run task
+[2023-04-04 15:18:28,936] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'dados_climaticos', 'extrai_dados', 'scheduled__2022-09-05T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/dados_climaticos.py', '--cfg-path', '/tmp/tmp3ary6ple', '--error-file', '/tmp/tmpa8nx3u97']
+[2023-04-04 15:18:28,936] {standard_task_runner.py:80} INFO - Job 34: Subtask extrai_dados
+[2023-04-04 15:18:29,008] {task_command.py:370} INFO - Running <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [running]> on host bruno-H610M-H-DDR4
+[2023-04-04 15:18:29,052] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=dados_climaticos
+AIRFLOW_CTX_TASK_ID=extrai_dados
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-05T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-05T00:00:00+00:00
+[2023-04-04 15:18:29,889] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/bruno/Documents/airflow_alura/dags/dados_climaticos.py", line 32, in extrai_dados
+    dados[['datetime', 'tempmin', 'temp', 'tempax']].to_csv(
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/frame.py", line 3766, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5876, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5938, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['tempax'] not in index"
+[2023-04-04 15:18:29,892] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=dados_climaticos, task_id=extrai_dados, execution_date=20220905T000000, start_date=20230404T181828, end_date=20230404T181829
+[2023-04-04 15:18:29,916] {standard_task_runner.py:92} ERROR - Failed to execute job 34 for task extrai_dados ("['tempax'] not in index"; 9566)
+[2023-04-04 15:18:29,950] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-04-04 15:18:29,972] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-04-04 15:20:44,496] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:20:44,510] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:20:44,510] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:20:44,510] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-04-04 15:20:44,510] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:20:44,531] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extrai_dados> on 2022-09-05 00:00:00+00:00
+[2023-04-04 15:20:44,534] {standard_task_runner.py:52} INFO - Started process 9966 to run task
+[2023-04-04 15:20:44,536] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'dados_climaticos', 'extrai_dados', 'scheduled__2022-09-05T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/dados_climaticos.py', '--cfg-path', '/tmp/tmpufkpfqy2', '--error-file', '/tmp/tmp8er0u03e']
+[2023-04-04 15:20:44,537] {standard_task_runner.py:80} INFO - Job 34: Subtask extrai_dados
+[2023-04-04 15:20:44,582] {task_command.py:370} INFO - Running <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [running]> on host bruno-H610M-H-DDR4
+[2023-04-04 15:20:44,630] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=dados_climaticos
+AIRFLOW_CTX_TASK_ID=extrai_dados
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-05T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-05T00:00:00+00:00
+[2023-04-04 15:20:45,362] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/bruno/Documents/airflow_alura/dags/dados_climaticos.py", line 32, in extrai_dados
+    dados[['datetime', 'tempmin', 'temp', 'tempax']].to_csv(
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/frame.py", line 3766, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5876, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5938, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['tempax'] not in index"
+[2023-04-04 15:20:45,370] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=dados_climaticos, task_id=extrai_dados, execution_date=20220905T000000, start_date=20230404T182044, end_date=20230404T182045
+[2023-04-04 15:20:45,388] {standard_task_runner.py:92} ERROR - Failed to execute job 34 for task extrai_dados ("['tempax'] not in index"; 9966)
+[2023-04-04 15:20:45,430] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-04-04 15:20:45,441] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-04-04 15:22:28,623] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:22:28,640] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:22:28,640] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:22:28,640] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-04-04 15:22:28,640] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:22:28,668] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extrai_dados> on 2022-09-05 00:00:00+00:00
+[2023-04-04 15:22:28,672] {standard_task_runner.py:52} INFO - Started process 10243 to run task
+[2023-04-04 15:22:28,677] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'dados_climaticos', 'extrai_dados', 'scheduled__2022-09-05T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/dados_climaticos.py', '--cfg-path', '/tmp/tmpxrar77a9', '--error-file', '/tmp/tmpm6bxllzc']
+[2023-04-04 15:22:28,678] {standard_task_runner.py:80} INFO - Job 34: Subtask extrai_dados
+[2023-04-04 15:22:28,726] {task_command.py:370} INFO - Running <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [running]> on host bruno-H610M-H-DDR4
+[2023-04-04 15:22:28,777] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=dados_climaticos
+AIRFLOW_CTX_TASK_ID=extrai_dados
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-05T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-05T00:00:00+00:00
+[2023-04-04 15:22:29,518] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/bruno/Documents/airflow_alura/dags/dados_climaticos.py", line 32, in extrai_dados
+    dados[['datetime', 'tempmin', 'temp', 'tempax']].to_csv(
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/frame.py", line 3766, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5876, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/bruno/Documents/airflow_alura/venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 5938, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['tempax'] not in index"
+[2023-04-04 15:22:29,527] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=dados_climaticos, task_id=extrai_dados, execution_date=20220905T000000, start_date=20230404T182228, end_date=20230404T182229
+[2023-04-04 15:22:29,546] {standard_task_runner.py:92} ERROR - Failed to execute job 34 for task extrai_dados ("['tempax'] not in index"; 10243)
+[2023-04-04 15:22:29,571] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-04-04 15:22:29,589] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-04-04 15:25:44,554] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:25:44,568] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [queued]>
+[2023-04-04 15:25:44,568] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:25:44,568] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-04-04 15:25:44,568] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-04 15:25:44,590] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): extrai_dados> on 2022-09-05 00:00:00+00:00
+[2023-04-04 15:25:44,593] {standard_task_runner.py:52} INFO - Started process 10708 to run task
+[2023-04-04 15:25:44,597] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'dados_climaticos', 'extrai_dados', 'scheduled__2022-09-05T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/dados_climaticos.py', '--cfg-path', '/tmp/tmpdsaq4acr', '--error-file', '/tmp/tmpk7hv2jvm']
+[2023-04-04 15:25:44,597] {standard_task_runner.py:80} INFO - Job 34: Subtask extrai_dados
+[2023-04-04 15:25:44,636] {task_command.py:370} INFO - Running <TaskInstance: dados_climaticos.extrai_dados scheduled__2022-09-05T00:00:00+00:00 [running]> on host bruno-H610M-H-DDR4
+[2023-04-04 15:25:44,693] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=dados_climaticos
+AIRFLOW_CTX_TASK_ID=extrai_dados
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-05T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-05T00:00:00+00:00
+[2023-04-04 15:25:45,427] {python.py:173} INFO - Done. Returned value was: None
+[2023-04-04 15:25:45,436] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=dados_climaticos, task_id=extrai_dados, execution_date=20220905T000000, start_date=20230404T182544, end_date=20230404T182545
+[2023-04-04 15:25:45,490] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-04-04 15:25:45,508] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
